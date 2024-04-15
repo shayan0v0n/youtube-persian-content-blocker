@@ -1,0 +1,21 @@
+{
+    "name": "youtube-persian-content-blocker",
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "description": "this is youtube-persian-content-blocker",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "src/popup/popup.html"
+    },
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "scripting",
+      "storage",
+      "declarativeContent"
+    ]
+  }
+  

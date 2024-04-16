@@ -1,1 +1,1 @@
-export const validSites = ["https://www.youtube.com/"];
+export const validSite = /https:\/\/www\.youtube\.com\//;

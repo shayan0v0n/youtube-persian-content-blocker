@@ -1,6 +1,6 @@
-import { persianAlphabets } from "../constants/alphabets";
-import { validSites } from "../constants/uri";
+import { persianLettersRegex } from "../constants/regexes";
 import { makeElementInvisible } from "./accessElement";
+import { validSites } from "../constants/uri";
 
 export const blockPosts = () => {
   if (chrome.tabs) {
@@ -11,9 +11,17 @@ export const blockPosts = () => {
         chrome.scripting.executeScript({
           target: { tabId: tab.id! },
           func: () => {
-            const selectElement = document.getElementById(".primary");
-
-            makeElementInvisible(selectElement!);
+            const posts = document.querySelectorAll("#content");
+            posts.forEach((post: any) => {
+              const postContent =
+                post.querySelector("#video-title")?.textContent;
+              const persianLettersRegex = /[\u0600-\u06FF]/;
+              if (persianLettersRegex.test(postContent)) {
+                post.style.visibility = "hidden";
+                post.style.position = "absolute";
+                post.style.opacity = "0";
+              }
+            });
           },
         });
       }

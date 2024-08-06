@@ -21,7 +21,8 @@
       "activeTab",
       "scripting",
       "storage",
-      "declarativeContent"
+      "declarativeContent",
+      "nativeMessaging"
     ]
   }
   
